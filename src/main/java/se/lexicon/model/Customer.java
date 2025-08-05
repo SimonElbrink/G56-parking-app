@@ -4,6 +4,8 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// https://dev.java/learn/oop/
+// https://dev.java/learn/classes-objects/
 /**
  * Represents a customer with its information and vehicles plate number.
  */
@@ -44,6 +46,8 @@ public class Customer {
             throw new IllegalArgumentException("PhoneNumber should not be null or empty.");
 
 
+        // https://www.baeldung.com/java-regex-validate-phone-numbers
+        // https://dev.java/learn/pattern-matching/
         String phoneRegex = "^\\+?[0-9]{10,15}$";
         /*
             ^ → Start of the string.
