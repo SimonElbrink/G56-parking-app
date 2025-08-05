@@ -43,7 +43,7 @@ adhering to OOP principles.
 
 ### **2. Class Diagram**
 
-
+![Class Diagram - Parking App.png](img/Class%20Diagram%20-%20Parking%20App.png)
 
 - Implement and Complete the entities in Java based on the class diagram.
 - Ensure each class has appropriate attributes and methods to handle its responsibilities.
