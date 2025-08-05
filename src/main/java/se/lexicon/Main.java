@@ -1,6 +1,7 @@
 package se.lexicon;
 
 import se.lexicon.model.Customer;
+import se.lexicon.model.ParkingSpot;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,10 +13,17 @@ public class Main {
         //Update Values
 //        customer.setId(null);
         customer.setVehiclePlateNumber("CBA321"); // Update
-
-        customer.setPhoneNumber("Simon@lexion.se");
+//        customer.setPhoneNumber("Simon@lexion.se"); //Not allowed
 
         System.out.println(customer);
+
+
+        ParkingSpot spot1 = new ParkingSpot(1, 10003);
+        ParkingSpot spot2 = new ParkingSpot(2, 10003);
+        spot2.occupy();
+
+        System.out.println(spot1);
+        System.out.println(spot2);
 
     }
 }
