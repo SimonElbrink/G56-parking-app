@@ -10,10 +10,29 @@ public class ParkingSpot {
     private Integer areaCode;
     private boolean occupied;
 
-    //Constructor
+    /**
+     * Constructor to initialize a parking spot with a spot number and area code.
+     * Defaults: occupied = false.
+     *
+     * @param spotNumber The unique spot number.
+     * @param areaCode   The area code where the parking spot is located.
+     */
     public ParkingSpot(Integer spotNumber, Integer areaCode) {
         this.spotNumber = spotNumber;
         this.areaCode = areaCode;
+    }
+
+
+    /**
+     * Constructor to initialize a parking spot with all attributes
+     *
+     * @param spotNumber The unique spot Number.
+     * @param areaCode   The area code where the parking spot is located.
+     * @param occupied   The occupancy status of the parking spot.
+     */
+    public ParkingSpot(Integer spotNumber, Integer areaCode, boolean occupied) {
+        this(spotNumber,areaCode);
+        this.occupied = occupied;
     }
 
     //Methods (Getters/Setters/equals&hashCode/toString)

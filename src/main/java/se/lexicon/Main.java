@@ -21,6 +21,7 @@ public class Main {
         ParkingSpot spot1 = new ParkingSpot(1, 10003);
         ParkingSpot spot2 = new ParkingSpot(2, 10003);
         spot2.occupy();
+        new ParkingSpot(3,10003,false);
 
         System.out.println(spot1);
         System.out.println(spot2);
