@@ -2,6 +2,7 @@ package se.lexicon;
 
 import se.lexicon.model.Customer;
 import se.lexicon.model.ParkingSpot;
+import se.lexicon.model.Reservation;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +18,6 @@ public class Main {
 
         System.out.println(customer);
 
-
         ParkingSpot spot1 = new ParkingSpot(1, 10003);
         ParkingSpot spot2 = new ParkingSpot(2, 10003);
         spot2.occupy();
@@ -25,6 +25,14 @@ public class Main {
 
         System.out.println(spot1);
         System.out.println(spot2);
+
+
+        Reservation reservation = new Reservation(spot1, customer, 2);
+
+        reservation.setEndTimeByHours(5);
+        reservation.complete();
+
+        System.out.println(reservation);
 
     }
 }
