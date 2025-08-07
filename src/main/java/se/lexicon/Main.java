@@ -1,38 +1,37 @@
 package se.lexicon;
 
+import se.lexicon.dao.CustomerDao;
+import se.lexicon.dao.ParkingSpotDao;
+import se.lexicon.dao.impl.CustomerDaoImpl;
+import se.lexicon.dao.impl.ParkingSpotDaoImpl;
 import se.lexicon.model.Customer;
 import se.lexicon.model.ParkingSpot;
 import se.lexicon.model.Reservation;
 
+import java.util.List;
+import java.util.Optional;
+
 public class Main {
     public static void main(String[] args) {
+        CustomerDao customerStorage = new CustomerDaoImpl();
+        ParkingSpotDao parkingSpotDao = new ParkingSpotDaoImpl();
 
-        // Instance of a customer =  instantiation of an Object
-        // Default Values
-        Customer customer = new Customer("Simon", "0123456789", "ABC123");
+        Customer simon = new Customer("Simon", "0123456789", "ABC123");
+        System.out.println(simon);
 
-        //Update Values
-//        customer.setId(null);
-        customer.setVehiclePlateNumber("CBA321"); // Update
-//        customer.setPhoneNumber("Simon@lexion.se"); //Not allowed
+        customerStorage.create(simon);
 
-        System.out.println(customer);
+        System.out.println(simon);
 
-        ParkingSpot spot1 = new ParkingSpot(1, 10003);
-        ParkingSpot spot2 = new ParkingSpot(2, 10003);
-        spot2.occupy();
-        new ParkingSpot(3,10003,false);
+        Optional<Customer> findById = customerStorage.findById(1);
 
-        System.out.println(spot1);
-        System.out.println(spot2);
+        System.out.println(findById.get().getName());
 
+        ParkingSpot parkingSpot = new ParkingSpot(20, 20005);
+        parkingSpotDao.create(parkingSpot);
 
-        Reservation reservation = new Reservation(spot1, customer, 2);
-
-        reservation.setEndTimeByHours(5);
-        reservation.complete();
-
-        System.out.println(reservation);
+        parkingSpot.setAreaCode(50004);
+        parkingSpotDao.update(parkingSpot);
 
     }
 }

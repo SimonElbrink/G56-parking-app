@@ -3,30 +3,48 @@ package se.lexicon.dao.impl;
 import se.lexicon.dao.ReservationDao;
 import se.lexicon.model.Reservation;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ReservationDaoImpl implements ReservationDao {
+
+    private final List<Reservation> reservations = new ArrayList<>(); // In-memory storage
+
     @Override
     public Reservation create(Reservation reservation) {
-        //TODO: Implement
-        return null;
+        reservations.add(reservation);
+        return reservation;
     }
 
     @Override
-    public Reservation findById(String reservationId) {
-        //TODO: Implement
-        return null;
+    public Optional<Reservation> findById(String reservationId) {
+        for (Reservation reservation : reservations) {
+            if (reservation.getReservationId().equals(reservationId)) {
+                return Optional.of(reservation);
+            }
+        }
+        return Optional.empty();
     }
 
     @Override
     public List<Reservation> findAll() {
-        //TODO: Implement
-        return List.of();
+        return new ArrayList<>(reservations); // Return a copy to prevent modification
     }
 
     @Override
     public void update(Reservation reservation) {
-        //TODO: Implement
+        if (reservation == null || reservation.getReservationId() == null) {
+            throw new IllegalArgumentException("Reservation or Reservation ID cannot be null.");
+        }
 
+        for (int i = 0; i < reservations.size(); i++) {
+            if (reservations.get(i).getReservationId().equals(reservation.getReservationId())) {
+                reservations.set(i, reservation); // Update the reservation in place
+                return;
+            }
+        }
+
+        throw new IllegalArgumentException("Reservation not found: " + reservation.getReservationId());
     }
 }

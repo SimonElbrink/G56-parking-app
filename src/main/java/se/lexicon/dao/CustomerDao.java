@@ -2,13 +2,15 @@ package se.lexicon.dao;
 
 import se.lexicon.model.Customer;
 
+import java.util.Optional;
+
 public interface CustomerDao {
 
     Customer create(Customer customer);
 
-    Customer findById(int id);
+    Optional<Customer> findById(int id);
 
-    Customer finbdByPlateNumber();
+    Customer findByPlateNumber();
 
 //    List<Customer> findAll(); // Not alow to find all customers
 

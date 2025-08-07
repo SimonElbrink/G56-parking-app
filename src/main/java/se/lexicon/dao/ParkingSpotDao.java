@@ -3,6 +3,7 @@ package se.lexicon.dao;
 import se.lexicon.model.ParkingSpot;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ParkingSpotDao {
 
@@ -12,7 +13,7 @@ public interface ParkingSpotDao {
 
     List<ParkingSpot> findAll();
 
-    ParkingSpot findBySpotNumber(Integer spotNumber);
+    Optional<ParkingSpot> findBySpotNumber(Integer spotNumber);
 
     List<ParkingSpot> findAvailableSpots();
 
