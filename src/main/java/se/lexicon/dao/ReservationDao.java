@@ -13,6 +13,9 @@ public interface ReservationDao {
 
     List<Reservation> findAll();
 
+    Optional<Reservation> findByCustomerID(Integer customerID);
+
     void update(Reservation reservation);
+
 
 }

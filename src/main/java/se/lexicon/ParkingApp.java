@@ -67,6 +67,7 @@ public class ParkingApp {
 
 
     private void vacateParkingSpot() {
+        // TODO - Implement
     }
 
     private void reserveParkingSpot() {

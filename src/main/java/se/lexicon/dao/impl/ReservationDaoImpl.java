@@ -33,6 +33,13 @@ public class ReservationDaoImpl implements ReservationDao {
     }
 
     @Override
+    public Optional<Reservation> findByCustomerID(Integer customerID) {
+
+        //TODO - implement
+        return Optional.empty();
+    }
+
+    @Override
     public void update(Reservation reservation) {
         if (reservation == null || reservation.getReservationId() == null) {
             throw new IllegalArgumentException("Reservation or Reservation ID cannot be null.");
